@@ -75,7 +75,7 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		
 
 		leftPanel.setBorder(BorderFactory.createEmptyBorder(0,40,500,40));
-		leftPanel.setBackground(new Color(90,120,90));
+		leftPanel.setBackground(new Color(120,120,50));
 
 		leftPanel.setPreferredSize(new Dimension(300,0));
 		leftPanel.setMaximumSize(new Dimension(300,0));
@@ -116,7 +116,7 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		topPanel.add(sortLabel);
 		topPanel.add(sort);
 		topPanel.setBorder(BorderFactory.createEmptyBorder(10,0,0,0));
-		topPanel.setBackground(new Color(90,120,50));
+		topPanel.setBackground(new Color(120,120,50));
 		container.add(topPanel,BorderLayout.NORTH);
 		}
 
