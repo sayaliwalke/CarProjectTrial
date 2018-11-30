@@ -20,6 +20,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
+
+
 import javafx.scene.control.ComboBox;
 
 
@@ -107,7 +109,9 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 
 	//@Override
 	public void setTopPanel() {
-		topPicture = new JLabel(new ImageIcon("Images//image.jpg"));
+		
+		
+		topPicture = new JLabel(new ImageIcon("Images//Image.jpg"));
 		homeButton = new JButton("HOME");
 		searchBar = new JTextField(40);
 		searchButton = new JButton("Search");
@@ -116,7 +120,7 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 
 		topPanel.setBorder(BorderFactory.createTitledBorder("Search"));
 
-		topPanel.setLayout (new FlowLayout(FlowLayout.LEFT));
+		topPanel.setLayout (new FlowLayout(FlowLayout.CENTER));
 		topPanel.add(Box.createRigidArea(new Dimension(50,0)));
 		topPanel.add(topPicture);
 		topPanel.add(Box.createRigidArea(new Dimension(20,0)));
@@ -128,7 +132,7 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		topPanel.add(Box.createRigidArea(new Dimension(30,0)));
 		topPanel.add(sortLabel);
 		topPanel.add(sort);
-		//topPanel.setBorder(BorderFactory.createEmptyBorder(10,0,0,0));
+		topPanel.setBorder(BorderFactory.createEmptyBorder(10,0,0,0));
 		topPanel.setBackground(new Color(192,192,192));
 		container.add(topPanel,BorderLayout.NORTH);
 	}
