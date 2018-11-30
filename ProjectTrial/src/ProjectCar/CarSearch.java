@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
@@ -104,12 +105,13 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		yearFilter = new JComboBox();
 		categoryFilter = new JComboBox();
 	}
+	
 
 	// @Override
 	public void setTopPanel() {
 		
 		
-		topPicture = new JLabel(new ImageIcon("Images//Image.jpg"));
+		topPicture = new JLabel(new ImageIcon("Images//VehicleImage.jpg"));
 		homeButton = new JButton("HOME");
 		searchBar = new JTextField(40);
 		searchButton = new JButton("Search");
@@ -118,9 +120,9 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 				new String[] { "Year ascending", "Year descending", "Price low to high", "Price high to low" });
 
 		topPanel.setBorder(BorderFactory.createTitledBorder("Search"));
-
+	    topPanel.setLayout(new GridBagLayout());
 		topPanel.setLayout (new FlowLayout(FlowLayout.CENTER));
-		topPanel.add(Box.createRigidArea(new Dimension(50,0)));
+		topPanel.add(Box.createRigidArea(new Dimension(200,200)));
 		topPanel.add(topPicture);
 		topPanel.add(Box.createRigidArea(new Dimension(20, 0)));
 		topPanel.add(homeButton);
@@ -131,6 +133,7 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		topPanel.add(Box.createRigidArea(new Dimension(30, 0)));
 		topPanel.add(sortLabel);
 		topPanel.add(sort);
+		
 		topPanel.setBorder(BorderFactory.createEmptyBorder(10,0,0,0));
 		topPanel.setBackground(new Color(192,192,192));
 		container.add(topPanel,BorderLayout.NORTH);
