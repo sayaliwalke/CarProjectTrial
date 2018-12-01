@@ -2,34 +2,11 @@ package ProjectCar;
 
 import java.awt.BorderLayout;
 
-
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.WindowConstants;
-
-import javafx.scene.control.ComboBox;
-
 public class CarSearch extends CarSearchDefination implements CarSearchInterface {
 	public CarSearch() {
 		super();
@@ -153,7 +130,7 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		leftPanel.add(clearFiltersButton);
 		leftPanel.setBorder(BorderFactory.createTitledBorder("Filters"));
-		leftPanel.setBackground(new Color(192, 192, 192));
+		//leftPanel.setBackground(new Color(192, 192, 192));
 		leftPanel.setPreferredSize(new Dimension(300, 0));
 		leftPanel.setMaximumSize(new Dimension(300, 0));
 		leftPanel.setMinimumSize(new Dimension(300, 0));
@@ -206,8 +183,15 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 	// @Override
 	public void setTopPanel() {
 		
-		
-		topPicture = new JLabel(new ImageIcon("Images//VehicleImage.jpg"));
+		topPanel = new JPanel()
+        {
+            public void paintComponent(Graphics g)
+            {
+            	ImageIcon backImage = new ImageIcon("Images//VehicleImage.jpg");
+                 g.drawImage(backImage.getImage(), 0, 0, this.getSize().width, this.getSize().height, this);
+            }
+        };
+        topPanel.setOpaque(true);
 		homeButton = new JButton("HOME");
 		searchBar = new JTextField(40);
 		searchButton = new JButton("Search");
@@ -215,11 +199,8 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		sort = new JComboBox(
 				new String[] { "Year ascending", "Year descending", "Price low to high", "Price high to low" });
 
-		topPanel.setBorder(BorderFactory.createTitledBorder("Search"));
-	    topPanel.setLayout(new GridBagLayout());
-		topPanel.setLayout (new FlowLayout(FlowLayout.CENTER));
+		topPanel.setBorder(BorderFactory.createTitledBorder("Dealer Name"));
 		topPanel.add(Box.createRigidArea(new Dimension(200,200)));
-		topPanel.add(topPicture);
 		topPanel.add(Box.createRigidArea(new Dimension(20, 0)));
 		topPanel.add(homeButton);
 		topPanel.add(Box.createRigidArea(new Dimension(20, 0)));
@@ -229,8 +210,6 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		topPanel.add(Box.createRigidArea(new Dimension(30, 0)));
 		topPanel.add(sortLabel);
 		topPanel.add(sort);
-		topPanel.setBorder(BorderFactory.createEmptyBorder(10,0,0,0));
-		topPanel.setBackground(new Color(192,192,192));
 		container.add(topPanel,BorderLayout.NORTH);
 	}
 
