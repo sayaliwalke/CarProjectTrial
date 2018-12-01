@@ -1,7 +1,10 @@
 package ProjectCar;
 
 import java.awt.BorderLayout;
+
+
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -15,15 +18,15 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
-
-
 
 import javafx.scene.control.ComboBox;
 
@@ -49,6 +52,12 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		searchVehicleLabel = new JLabel("Search Cars");
 		searchVehicleLabel.setFont(new Font("Times new Roman", Font.BOLD, 22));
 		clearFiltersButton = new JButton("CLEAR FILTERS");
+		moreButton1 = new JButton("MORE");
+		moreButton2 = new JButton("MORE");
+		moreButton3 = new JButton("MORE");
+		moreButton4 = new JButton("MORE");
+		moreButton5 = new JButton("MORE");
+		moreButton6 = new JButton("MORE");
 		// clearFilters.setPreferredSize(new Dimension(250,30));
 		// clearFilters.setMinimumSize(new Dimension(250,30));
 		// clearFilters.setMaximumSize(new Dimension(250,30));
@@ -63,23 +72,84 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		leftPanel.add(searchVehicleLabel);
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		leftPanel.add(brandFilterLabel);
-		leftPanel.add(brandFilter);
+		leftPanel.add(brandFilter1);
+		brandFilter1.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(brandFilter2);
+		brandFilter2.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(brandFilter3);
+		brandFilter3.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(brandFilter4);
+		brandFilter4.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+		leftPanel.add(moreButton1);
+		moreButton1.setPreferredSize(new Dimension(50, 50));
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		leftPanel.add(modelFilterLabel);
-		leftPanel.add(modelFilter);
-		modelFilter.setPreferredSize(new Dimension(10, 10));
+		leftPanel.add(modelFilterA);
+		modelFilterA.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(modelFilterB);
+		modelFilterB.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(modelFilterC);
+		modelFilterC.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+		leftPanel.add(moreButton2);
+		moreButton2.setPreferredSize(new Dimension(50, 50));
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		leftPanel.add(bodyTypeFilterLabel);
-		leftPanel.add(bodyTypeFilter);
+		leftPanel.add(bodyTypeFilter1);
+		bodyTypeFilter1.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(bodyTypeFilter2);
+		bodyTypeFilter2.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(bodyTypeFilter3);
+		bodyTypeFilter3.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(bodyTypeFilter4);
+		bodyTypeFilter4.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+		leftPanel.add(moreButton3);
+		moreButton3.setPreferredSize(new Dimension(50, 50));
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		leftPanel.add(yearFilterLabel);
-		leftPanel.add(yearFilter);
+		leftPanel.add(yearFilter1);
+		yearFilter1.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(yearFilter2);
+		yearFilter2.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(yearFilter3);
+		yearFilter3.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+		leftPanel.add(moreButton4);
+		moreButton4.setPreferredSize(new Dimension(50, 50));
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		leftPanel.add(priceFilterLabel);
-		leftPanel.add(priceFilter);
+		leftPanel.add(priceFiltera);
+		priceFiltera.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(priceFilterb);
+		priceFilterb.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(priceFilterc);
+		priceFilterc.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(priceFilterd);
+		priceFilterd.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(priceFiltere);
+		priceFiltere.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(priceFilterf);
+		priceFilterf.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(priceFilterg);
+		priceFilterg.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+		leftPanel.add(moreButton5);
+		moreButton5.setPreferredSize(new Dimension(50, 50));
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		leftPanel.add(categoryFilterLabel);
-		leftPanel.add(categoryFilter);
+		leftPanel.add(categoryFilter1);
+		categoryFilter1.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(categoryFilter2);
+		categoryFilter2.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(categoryFilter3);
+		categoryFilter3.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(categoryFilter4);
+		categoryFilter4.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+		leftPanel.add(moreButton6);
+		moreButton6.setPreferredSize(new Dimension(50, 50));
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		leftPanel.add(clearFiltersButton);
 		leftPanel.setBorder(BorderFactory.createTitledBorder("Filters"));
@@ -97,15 +167,41 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		String[] modelFilterItems = new String[] { "A", "B", "C" };
 		String[] brandFilterItems = new String[] { "Jaguar", "BMW", "Merc", "Land Rover" };
 		String[] bodyTypeItems = new String[] { "Sedan", "SUV", "HatchBack", "Coupe" };
+		String[] yearFilterItems = new String[] {"2016", "2017", "2018"};
 
-		modelFilter = new JComboBox(modelFilterItems);
-		priceFilter = new JComboBox(priceFilterItems);
-		brandFilter = new JComboBox(brandFilterItems);
-		bodyTypeFilter = new JComboBox(bodyTypeItems);
-		yearFilter = new JComboBox();
-		categoryFilter = new JComboBox();
+		//modelFilter = new JComboBox(modelFilterItems);
+		modelFilterA = new JCheckBox("A");
+		modelFilterB = new JCheckBox("B");
+		modelFilterC = new JCheckBox("C");
+		//priceFilter = new JComboBox(priceFilterItems);
+		priceFiltera = new JCheckBox("0-20000");
+		priceFilterb = new JCheckBox("20000-30000");
+		priceFilterc = new JCheckBox("30000-40000");
+		priceFilterd = new JCheckBox("40000-50000");
+		priceFiltere = new JCheckBox("50000-60000");
+		priceFilterf = new JCheckBox("60000-70000");
+		priceFilterg = new JCheckBox(">70000");
+		//brandFilter = new JComboBox(brandFilterItems);
+		brandFilter1 = new JCheckBox("Jaguar");
+		brandFilter2 = new JCheckBox("BMW");
+		brandFilter3 = new JCheckBox("Merc");
+		brandFilter4 = new JCheckBox("Land Rover");
+		//bodyTypeFilter = new JComboBox(bodyTypeItems);
+		bodyTypeFilter1 = new JCheckBox("Sedan");
+		bodyTypeFilter2 = new JCheckBox("SUV");
+		bodyTypeFilter3 = new JCheckBox("HatchBack");
+		bodyTypeFilter4 = new JCheckBox("Coupe");
+		//yearFilter = new JComboBox();
+		yearFilter1 = new JCheckBox("2016");
+		yearFilter2 = new JCheckBox("2017");
+		yearFilter3 = new JCheckBox("2018");
+		//categoryFilter = new JComboBox();
+		categoryFilter1 = new JCheckBox("Certified");
+		categoryFilter2 = new JCheckBox("New");
+		categoryFilter3 = new JCheckBox("Used");
+		categoryFilter4 = new JCheckBox("All");
+		
 	}
-	
 
 	// @Override
 	public void setTopPanel() {
@@ -133,7 +229,6 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		topPanel.add(Box.createRigidArea(new Dimension(30, 0)));
 		topPanel.add(sortLabel);
 		topPanel.add(sort);
-		
 		topPanel.setBorder(BorderFactory.createEmptyBorder(10,0,0,0));
 		topPanel.setBackground(new Color(192,192,192));
 		container.add(topPanel,BorderLayout.NORTH);
