@@ -141,7 +141,7 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		leftPanel.add(clearFiltersButton);
 		leftPanel.setBorder(BorderFactory.createTitledBorder("Filters"));
 		leftPanel.setBackground(new Color(192, 192, 192));
-		leftPanel.setPreferredSize(new Dimension(300,1200));
+		leftPanel.setPreferredSize(new Dimension(300,1500));
 		JScrollPane leftscrollPane = new JScrollPane(leftPanel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		leftscrollPane.getVerticalScrollBar().setUnitIncrement(20);
 		container.add(leftscrollPane, BorderLayout.WEST);
