@@ -39,6 +39,12 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		searchVehicleLabel = new JLabel("Search Cars");
 		searchVehicleLabel.setFont(new Font("Times new Roman", Font.BOLD, 22));
 		clearFiltersButton = new JButton("CLEAR FILTERS");
+		clearButton1 = new JButton("CLEAR");
+		clearButton2 = new JButton("CLEAR");
+		clearButton3 = new JButton("CLEAR");
+		clearButton4 = new JButton("CLEAR");
+		clearButton5 = new JButton("CLEAR");
+		clearButton6 = new JButton("CLEAR");
 		moreButton1 = new JButton("MORE");
 		moreButton2 = new JButton("MORE");
 		moreButton3 = new JButton("MORE");
@@ -58,6 +64,8 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		leftPanel.add(searchVehicleLabel);
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+		leftPanel.add(clearButton1);
+		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		leftPanel.add(brandFilterLabel);
 		leftPanel.add(brandFilter1);
 		brandFilter1.setPreferredSize(new Dimension(50, 50));
@@ -71,6 +79,8 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		leftPanel.add(moreButton1);
 		moreButton1.setPreferredSize(new Dimension(50, 50));
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+		leftPanel.add(clearButton2);
+		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		leftPanel.add(modelFilterLabel);
 		leftPanel.add(modelFilterA);
 		modelFilterA.setPreferredSize(new Dimension(50, 50));
@@ -81,6 +91,8 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		leftPanel.add(moreButton2);
 		moreButton2.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+		leftPanel.add(clearButton3);
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		leftPanel.add(bodyTypeFilterLabel);
 		leftPanel.add(bodyTypeFilter1);
@@ -95,6 +107,8 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		leftPanel.add(moreButton3);
 		moreButton3.setPreferredSize(new Dimension(50, 50));
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+		leftPanel.add(clearButton4);
+		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		leftPanel.add(yearFilterLabel);
 		leftPanel.add(yearFilter1);
 		yearFilter1.setPreferredSize(new Dimension(50, 50));
@@ -105,6 +119,8 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		leftPanel.add(moreButton4);
 		moreButton4.setPreferredSize(new Dimension(50, 50));
+		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+		leftPanel.add(clearButton5);
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		leftPanel.add(priceFilterLabel);
 		leftPanel.add(priceFiltera);
@@ -125,6 +141,8 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		leftPanel.add(moreButton5);
 		moreButton5.setPreferredSize(new Dimension(50, 50));
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+		leftPanel.add(clearButton6);
+		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		leftPanel.add(categoryFilterLabel);
 		leftPanel.add(categoryFilter1);
 		categoryFilter1.setPreferredSize(new Dimension(50, 50));
@@ -141,7 +159,7 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		leftPanel.add(clearFiltersButton);
 		leftPanel.setBorder(BorderFactory.createTitledBorder("Filters"));
 		leftPanel.setBackground(new Color(192, 192, 192));
-		leftPanel.setPreferredSize(new Dimension(300,1500));
+		leftPanel.setPreferredSize(new Dimension(300,1600));
 		JScrollPane leftscrollPane = new JScrollPane(leftPanel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		leftscrollPane.getVerticalScrollBar().setUnitIncrement(20);
 		container.add(leftscrollPane, BorderLayout.WEST);
