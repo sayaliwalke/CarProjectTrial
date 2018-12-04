@@ -2,21 +2,11 @@ package ProjectCar;
 
 import java.awt.*;
 
-import java.awt.event.*;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import com.sun.prism.Image;
-
-import javafx.scene.control.ComboBox;
-import javafx.scene.layout.Border;
 
 public class CarSearch extends CarSearchDefination implements CarSearchInterface {
 	public CarSearch() {
@@ -41,9 +31,7 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		searchVehicleLabel.setFont(new Font("Times new Roman", Font.BOLD, 20));
 		clearFiltersButton = new JButton("CLEAR FILTERS");
 		applyFiltersButton= new JButton("APPLY FILTERS");
-		// clearFilters.setPreferredSize(new Dimension(250,30));
-		// clearFilters.setMinimumSize(new Dimension(250,30));
-		// clearFilters.setMaximumSize(new Dimension(250,30));
+
 
 		defineFilters();
 		BoxLayout leftPanelLayout = new BoxLayout(leftPanel, BoxLayout.Y_AXIS);
@@ -87,8 +75,9 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		leftPanel.add(clearFiltersButton);
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		leftPanel.add(applyFiltersButton);
+		
 		leftPanel.setBorder(BorderFactory.createTitledBorder("Filters"));
-	    leftPanel.setPreferredSize(new Dimension(300,600));
+	    leftPanel.setPreferredSize(new Dimension(400,400));
 		JScrollPane leftscrollPane = new JScrollPane(leftPanel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		leftscrollPane.getVerticalScrollBar().setUnitIncrement(20);
 		container.add(leftscrollPane, BorderLayout.WEST);
@@ -124,7 +113,7 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
         {
             public void paintComponent(Graphics g)
             {
-            	ImageIcon backImage = new ImageIcon("Images//carw.png");
+            	ImageIcon backImage = new ImageIcon("ProjectTrial//Images//carw.png");
                  g.drawImage(backImage.getImage(), 0, 0, this.getSize().width, this.getSize().height, this);
             }
         };
@@ -132,14 +121,14 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		homeButton = new JButton("HOME");
 		searchBar = new JTextField(40);
 		
-		topPicture = new JLabel(new ImageIcon("Images//Image.jpg"));
+		topPicture = new JLabel(new ImageIcon("ProjectTrial//Images//Image.jpg"));
 	    Icon homeIcon = new ImageIcon("Images//CarI.png");
 		searchButton = new JButton("Search");
 		sortLabel = new JLabel("SORT:");
 		sort = new JComboBox(
 		new String[] { "Year ascending", "Year descending", "Price low to high", "Price high to low" });
 		topPanel.setBorder(BorderFactory.createTitledBorder("Dealer Name"));
-		topPanel.add(Box.createRigidArea(new Dimension(200,200)));
+		topPanel.add(Box.createRigidArea(new Dimension(300,300)));
 		topPanel.add(Box.createRigidArea(new Dimension(20, 0)));
 		topPanel.add(homeButton);
 		topPanel.add(Box.createRigidArea(new Dimension(20, 0)));
@@ -157,13 +146,13 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		// for example there are 7 vehicles
 	    int length = 7;
 		List<Vehicle> vehicleList = new ArrayList<Vehicle>();
-		vehicleList.add(new Vehicle (1,"Jaguar","XE","Sedan",400,"Images//jaguar.png"));
-		vehicleList.add(new Vehicle (2,"Audi","TT","Coupe",400,"Images//AudiTT.png"));
-		vehicleList.add(new Vehicle (1,"BMW","M-5","Sedan",400,"Images//jaguar.png"));
-		vehicleList.add(new Vehicle (1,"Jaguar","XE","Sedan",400,"Images//AudiTT.png"));
-		vehicleList.add(new Vehicle (1,"Jaguar","XE","Sedan",400,"Images//jaguar.png"));
-		vehicleList.add(new Vehicle (1,"Jaguar","XE","Sedan",400,"Images//jaguar.png"));
-		vehicleList.add(new Vehicle (1,"Jaguar","XE","Sedan",400,"Images//jaguar.png"));
+		vehicleList.add(new Vehicle (1,"Jaguar","XE","Sedan",400,"ProjectTrial//Images//jaguar.png"));
+		vehicleList.add(new Vehicle (2,"Audi","TT","Coupe",400,"ProjectTrial//Images//AudiTT.png"));
+		vehicleList.add(new Vehicle (1,"BMW","M-5","Sedan",400,"ProjectTrial//Images//jaguar.png"));
+		vehicleList.add(new Vehicle (1,"Jaguar","XE","Sedan",400,"ProjectTrial//Images//AudiTT.png"));
+		vehicleList.add(new Vehicle (1,"Jaguar","XE","Sedan",400,"ProjectTrial//Images//jaguar.png"));
+		vehicleList.add(new Vehicle (1,"Jaguar","XE","Sedan",400,"ProjectTrial//Images//jaguar.png"));
+		vehicleList.add(new Vehicle (1,"Jaguar","XE","Sedan",400,"ProjectTrial//Images//jaguar.png"));
 		for (int i = 0; i < length; i++) {
 			JPanel carItemPanel = new JPanel();
 			carItemPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
