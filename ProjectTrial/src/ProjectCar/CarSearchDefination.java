@@ -5,7 +5,7 @@ public class CarSearchDefination extends JFrame{
 	//protected JFrame mainFrame;
 	private static final String JLable = null;
 	protected JPanel leftPanel, vehicleDetailsPanel, topPanel, vehicleDetailsPane;
-	protected JButton homeButton, viewDetails, searchButton, clearFiltersButton, moreDetails, clearButton;
+	protected JButton homeButton, viewDetails, searchButton, clearFiltersButton, applyFiltersButton, moreDetails, clearButton;
 	protected JLabel topPicture, modelFilterLabel, yearFilterLabel, brandFilterLabel,
 	priceFilterLabel, bodyTypeFilterLabel,categoryFilterLabel, sortLabel, vehicleImageLabel, vehicleModel, vehicleMake,
 	vehicleBodyType, vehiclePrice, vehicleCategory, vehicleYear,searchVehicleLabel;

@@ -38,8 +38,9 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		priceFilterLabel = new JLabel("PRICE");
 		categoryFilterLabel = new JLabel("CATEGORY");
 		searchVehicleLabel = new JLabel("Search Cars");
-		searchVehicleLabel.setFont(new Font("Times new Roman", Font.BOLD, 22));
+		searchVehicleLabel.setFont(new Font("Times new Roman", Font.BOLD, 20));
 		clearFiltersButton = new JButton("CLEAR FILTERS");
+		applyFiltersButton= new JButton("APPLY FILTERS");
 		// clearFilters.setPreferredSize(new Dimension(250,30));
 		// clearFilters.setMinimumSize(new Dimension(250,30));
 		// clearFilters.setMaximumSize(new Dimension(250,30));
@@ -47,52 +48,47 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		defineFilters();
 		BoxLayout leftPanelLayout = new BoxLayout(leftPanel, BoxLayout.Y_AXIS);
 		leftPanel.setLayout(leftPanelLayout);
-		// Box leftPanel = Box.createVerticalBox();
+		Box leftPanel = Box.createVerticalBox();
+		
 
-		leftPanel.add(Box.createVerticalGlue());
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		leftPanel.add(searchVehicleLabel);
+		leftPanel.add(categoryFilterLabel);
+		leftPanel.add(categoryFilter1);
+		categoryFilter1.setPreferredSize(new Dimension(20, 20));
+		leftPanel.add(categoryFilter2);
+		categoryFilter2.setPreferredSize(new Dimension(20, 20));
+		leftPanel.add(categoryFilter3);
+		categoryFilter3.setPreferredSize(new Dimension(20, 20));
+		leftPanel.add(categoryFilter4);
+		categoryFilter4.setPreferredSize(new Dimension(20, 20));
+		
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		leftPanel.add(brandFilterLabel);
 		leftPanel.add(brandFilter);
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+	
 		leftPanel.add(modelFilterLabel);
 		leftPanel.add(modelFilter);
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+		
 		leftPanel.add(bodyTypeFilterLabel);
 		leftPanel.add(bodyTypeFilter);
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+	
 		leftPanel.add(yearFilterLabel);
 		leftPanel.add(yearFilter);
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+		
 		leftPanel.add(priceFilterLabel);
 		leftPanel.add(priceFilter);
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-		leftPanel.add(categoryFilterLabel);
-		leftPanel.add(categoryFilter1);
-		categoryFilter1.setPreferredSize(new Dimension(50, 50));
-		leftPanel.add(categoryFilter2);
-		categoryFilter2.setPreferredSize(new Dimension(50, 50));
-		leftPanel.add(categoryFilter3);
-		categoryFilter3.setPreferredSize(new Dimension(50, 50));
-		leftPanel.add(categoryFilter4);
-		categoryFilter4.setPreferredSize(new Dimension(50, 50));
-		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+		
 		leftPanel.add(clearFiltersButton);
+		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+		leftPanel.add(applyFiltersButton);
 		leftPanel.setBorder(BorderFactory.createTitledBorder("Filters"));
-		leftPanel.setBackground(new Color(192, 192, 192));
-		leftPanel.setPreferredSize(new Dimension(300,1600));
+	    leftPanel.setPreferredSize(new Dimension(300,600));
 		JScrollPane leftscrollPane = new JScrollPane(leftPanel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		leftscrollPane.getVerticalScrollBar().setUnitIncrement(20);
 		container.add(leftscrollPane, BorderLayout.WEST);
@@ -101,22 +97,23 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 	}
 
 	private void defineFilters() {
-		String[] priceFilterItems = new String[] { "0-20000", "20000-30000", "30000-40000", "40000-50000",
+		String[] priceFilterItems = new String[] { "0-10000", "10000-20000", "20000-30000", "40000-50000",
 				"50000-60000", "60000-70000", ">70000" };
 		String[] modelFilterItems = new String[] { "A", "B", "C" };
 		String[] brandFilterItems = new String[] { "Jaguar", "BMW", "Merc", "Land Rover" };
 		String[] bodyTypeItems = new String[] { "Sedan", "SUV", "HatchBack", "Coupe" };
 		String[] yearFilterItems = new String[] {"2016", "2017", "2018"};
-
+		
+		categoryFilter1 = new JCheckBox("Certified");
+		categoryFilter2 = new JCheckBox("New");
+		categoryFilter3 = new JCheckBox("Used");
+		categoryFilter4 = new JCheckBox("All");
+		
 		modelFilter = new JComboBox(modelFilterItems);
 		priceFilter = new JComboBox(priceFilterItems);
 		brandFilter = new JComboBox(brandFilterItems);
 		bodyTypeFilter = new JComboBox(bodyTypeItems);
 		yearFilter = new JComboBox(yearFilterItems);
-		categoryFilter1 = new JCheckBox("Certified");
-		categoryFilter2 = new JCheckBox("New");
-		categoryFilter3 = new JCheckBox("Used");
-		categoryFilter4 = new JCheckBox("All");
 		
 	}
 
