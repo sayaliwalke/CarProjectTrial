@@ -120,8 +120,6 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
         topPanel.setOpaque(true);
 		homeButton = new JButton("HOME");
 		searchBar = new JTextField(40);
-		
-		topPicture = new JLabel(new ImageIcon("ProjectTrial//Images//Image.jpg"));
 	    Icon homeIcon = new ImageIcon("Images//CarI.png");
 		searchButton = new JButton("Search");
 		sortLabel = new JLabel("SORT:");
