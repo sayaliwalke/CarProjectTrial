@@ -5,7 +5,7 @@ public interface CarSearchInterface {
 
 	
 		
-		public abstract void setRightPanel();
+		public abstract void setVehicleDetailsPanel();
 		
 		public abstract void setLeftPanel();
 		

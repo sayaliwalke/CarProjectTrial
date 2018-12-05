@@ -2,26 +2,30 @@ package ProjectCar;
 
 import java.awt.*;
 
+import java.awt.event.*;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import com.sun.prism.Image;
+
+import javafx.scene.control.ComboBox;
+import javafx.scene.layout.Border;
 
 public class CarSearch extends CarSearchDefination implements CarSearchInterface {
 	public CarSearch() {
 		super();
 	}
 
-	// @Override
-	public void setRightPanel() {
-
-	}
-
-	// @Override
-	public void setLeftPanel() {
-
-		brandFilterLabel = new JLabel("BRAND");
+	
+    public void createLeftPanelComponents() {
+    	brandFilterLabel = new JLabel("BRAND");
 		modelFilterLabel = new JLabel("MODEL");
 		bodyTypeFilterLabel = new JLabel("BODY TYPE");
 		yearFilterLabel = new JLabel("YEAR");
@@ -31,25 +35,24 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		searchVehicleLabel.setFont(new Font("Times new Roman", Font.BOLD, 20));
 		clearFiltersButton = new JButton("CLEAR FILTERS");
 		applyFiltersButton= new JButton("APPLY FILTERS");
-
-
+    	
+    }
+	// @Override
+	public void setLeftPanel() {
+		createLeftPanelComponents();
 		defineFilters();
+
 		BoxLayout leftPanelLayout = new BoxLayout(leftPanel, BoxLayout.Y_AXIS);
 		leftPanel.setLayout(leftPanelLayout);
-		Box leftPanel = Box.createVerticalBox();
 		
-
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		leftPanel.add(searchVehicleLabel);
 		leftPanel.add(categoryFilterLabel);
 		leftPanel.add(categoryFilter1);
-		categoryFilter1.setPreferredSize(new Dimension(20, 20));
 		leftPanel.add(categoryFilter2);
-		categoryFilter2.setPreferredSize(new Dimension(20, 20));
 		leftPanel.add(categoryFilter3);
-		categoryFilter3.setPreferredSize(new Dimension(20, 20));
 		leftPanel.add(categoryFilter4);
-		categoryFilter4.setPreferredSize(new Dimension(20, 20));
+		
 		
 		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		leftPanel.add(brandFilterLabel);
@@ -70,14 +73,15 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		
 		leftPanel.add(priceFilterLabel);
 		leftPanel.add(priceFilter);
-		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-		
+		ButtonGroup G = new ButtonGroup();
+		G.add(clearFiltersButton);
+		G.add(applyFiltersButton);
+		leftPanel.add(Box.createRigidArea(new Dimension(0, 40)));
 		leftPanel.add(clearFiltersButton);
-		leftPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		leftPanel.add(applyFiltersButton);
 		
 		leftPanel.setBorder(BorderFactory.createTitledBorder("Filters"));
-	    leftPanel.setPreferredSize(new Dimension(400,400));
+	    leftPanel.setPreferredSize(new Dimension(300,600));
 		JScrollPane leftscrollPane = new JScrollPane(leftPanel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		leftscrollPane.getVerticalScrollBar().setUnitIncrement(20);
 		container.add(leftscrollPane, BorderLayout.WEST);
@@ -86,12 +90,14 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 	}
 
 	private void defineFilters() {
-		String[] priceFilterItems = new String[] { "0-10000", "10000-20000", "20000-30000", "40000-50000",
+		String[] priceFilterItems = new String[] {"None", "0-10000", "10000-20000", "20000-30000", "40000-50000",
 				"50000-60000", "60000-70000", ">70000" };
-		String[] modelFilterItems = new String[] { "A", "B", "C" };
-		String[] brandFilterItems = new String[] { "Jaguar", "BMW", "Merc", "Land Rover" };
+		String[] modelFilterItems = new String[] { "None","A", "B", "C" };
+		String[] brandFilterItems = new String[] { "None","Cadillac","Chevrolet","Chrysler","Ford",
+				"Toyota","Mazda","Jaguar", "BMW", "Mercedes","Jeep","Mitsubishi","Nissan","Land Rover","Other" };
 		String[] bodyTypeItems = new String[] { "Sedan", "SUV", "HatchBack", "Coupe" };
-		String[] yearFilterItems = new String[] {"2016", "2017", "2018"};
+		String[] yearFilterItems = new String[] {"2001", "2002", "2003","2004", "2005", "2006","2007", "2008", "2009","2010", "2011", 
+				"2012","2013", "2014", "2015","2016", "2017", "2018"};
 		
 		categoryFilter1 = new JCheckBox("Certified");
 		categoryFilter2 = new JCheckBox("New");
@@ -105,28 +111,33 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		yearFilter = new JComboBox(yearFilterItems);
 		
 	}
-
-	// @Override
-	public void setTopPanel() {
-		
+	
+	
+	public void createTopPanelComponents() {
 		topPanel = new JPanel()
         {
             public void paintComponent(Graphics g)
             {
-            	ImageIcon backImage = new ImageIcon("ProjectTrial//Images//carw.png");
+            	ImageIcon backImage = new ImageIcon("Images//carw.png");
                  g.drawImage(backImage.getImage(), 0, 0, this.getSize().width, this.getSize().height, this);
             }
         };
         topPanel.setOpaque(true);
 		homeButton = new JButton("HOME");
 		searchBar = new JTextField(40);
-	    Icon homeIcon = new ImageIcon("Images//CarI.png");
 		searchButton = new JButton("Search");
 		sortLabel = new JLabel("SORT:");
 		sort = new JComboBox(
 		new String[] { "Year ascending", "Year descending", "Price low to high", "Price high to low" });
+		
+	}
+
+	// @Override
+	public void setTopPanel() {
+		
+		createTopPanelComponents();
 		topPanel.setBorder(BorderFactory.createTitledBorder("Dealer Name"));
-		topPanel.add(Box.createRigidArea(new Dimension(300,300)));
+		topPanel.add(Box.createRigidArea(new Dimension(200,200)));
 		topPanel.add(Box.createRigidArea(new Dimension(20, 0)));
 		topPanel.add(homeButton);
 		topPanel.add(Box.createRigidArea(new Dimension(20, 0)));
@@ -138,19 +149,20 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		topPanel.add(sort);
 		container.add(topPanel,BorderLayout.NORTH);
 	}
-
-	public void setvehicleDetailsPanel() {
+	
+  
+	public void setVehicleDetailsPanel() {
 		// call the function to return List of Vehicles
 		// for example there are 7 vehicles
 	    int length = 7;
 		List<Vehicle> vehicleList = new ArrayList<Vehicle>();
-		vehicleList.add(new Vehicle (1,"Jaguar","XE","Sedan",400,"ProjectTrial//Images//jaguar.png"));
-		vehicleList.add(new Vehicle (2,"Audi","TT","Coupe",400,"ProjectTrial//Images//AudiTT.png"));
-		vehicleList.add(new Vehicle (1,"BMW","M-5","Sedan",400,"ProjectTrial//Images//jaguar.png"));
-		vehicleList.add(new Vehicle (1,"Jaguar","XE","Sedan",400,"ProjectTrial//Images//AudiTT.png"));
-		vehicleList.add(new Vehicle (1,"Jaguar","XE","Sedan",400,"ProjectTrial//Images//jaguar.png"));
-		vehicleList.add(new Vehicle (1,"Jaguar","XE","Sedan",400,"ProjectTrial//Images//jaguar.png"));
-		vehicleList.add(new Vehicle (1,"Jaguar","XE","Sedan",400,"ProjectTrial//Images//jaguar.png"));
+		vehicleList.add(new Vehicle (1,"Jaguar","XE","Sedan",400,"Images//jaguar.png"));
+		vehicleList.add(new Vehicle (2,"Audi","TT","Coupe",400,"Images//AudiTT.png"));
+		vehicleList.add(new Vehicle (1,"BMW","M-5","Sedan",400,"Images//jaguar.png"));
+		vehicleList.add(new Vehicle (1,"Jaguar","XE","Sedan",400,"Images//AudiTT.png"));
+		vehicleList.add(new Vehicle (1,"Jaguar","XE","Sedan",400,"Images//jaguar.png"));
+		vehicleList.add(new Vehicle (1,"Jaguar","XE","Sedan",400,"Images//jaguar.png"));
+		vehicleList.add(new Vehicle (1,"Jaguar","XE","Sedan",400,"Images//jaguar.png"));
 		for (int i = 0; i < length; i++) {
 			JPanel carItemPanel = new JPanel();
 			carItemPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -190,7 +202,7 @@ public class CarSearch extends CarSearchDefination implements CarSearchInterface
 		vehicleDetailsPane.setLayout(layout);
 		vehicleDetailsPane.setBackground(Color.WHITE);
 		vehicleDetailsPane.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-		setvehicleDetailsPanel();
+		setVehicleDetailsPanel();
 		scrollPane = new JScrollPane(vehicleDetailsPane, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.getVerticalScrollBar().setUnitIncrement(20);
  		container.add(scrollPane);
